@@ -11,29 +11,29 @@ import java.util.Optional;
 
 @Component
 public class PostService {
-  private final PostRepository repository;
+    private final PostRepository repository;
 
-  @Autowired
-  public PostService(PostRepository repository) {
-    this.repository = repository;
-  }
-
-  public List<Post> all() {
-    return repository.all();
-  }
-
-  public Optional<Post> getById(long id) {
-    return repository.getById(id);
-  }
-
-  public Post save(Post post) {
-    return repository.save(post);
-  }
-
-  public void removeById(long id) {
-    if (!repository.getById(id).isPresent()) {
-      throw new NotFoundException("Post with id " + id + " not found");
+    @Autowired
+    public PostService(PostRepository repository) {
+        this.repository = repository;
     }
-    repository.removeById(id);
-  }
+
+    public List<Post> all() {
+        return repository.all();
+    }
+
+    public Optional<Post> getById(long id) {
+        return repository.getById(id);
+    }
+
+    public Post save(Post post) {
+        return repository.save(post);
+    }
+
+    public void removeById(long id) {
+        if (!repository.getById(id).isPresent()) {
+            throw new NotFoundException("Post with id " + id + " not found");
+        }
+        repository.removeById(id);
+    }
 }

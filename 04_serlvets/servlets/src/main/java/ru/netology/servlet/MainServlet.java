@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
-  private PostController controller;
+    private PostController controller;
 
-  @Override
-  public void init() {
-    ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-    controller = context.getBean(PostController.class);
-  }
+    @Override
+    public void init() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
+        controller = context.getBean(PostController.class);
+    }
 
-  @Override
-  protected void service(HttpServletRequest req, HttpServletResponse resp) {
-    // Остаётся прежним
-  }
+    @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) {
+        // Остаётся прежним
+    }
 }
